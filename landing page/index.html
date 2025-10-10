@@ -3,59 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCoffee - Sustainable Brews for a Better Tomorrow</title>
+    <title>Build Your First Landing Page - Beginner Web Dev Project</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-brand">EcoCoffee</div>
-            <ul class="nav-menu">
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">WebDev Starter</div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">☰</div>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to EcoCoffee</h1>
-            <p>Discover our ethically sourced, organic coffee blends. Sustainably grown, deliciously brewed.</p>
-            <button class="cta-button">Order Now</button>
-        </div>
-        <!-- Optional: Add a background image here via CSS -->
-    </section>
-
-    <section id="features" class="features">
-        <h2>Why Choose EcoCoffee?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <img src="coffee-icon.png" alt="Organic Beans" class="icon">
-                <h3>Organic Beans</h3>
-                <p>100% organic, fair-trade coffee from sustainable farms.</p>
-            </div>
-            <div class="feature-card">
-                <img src="coffee-icon.png" alt="Eco-Friendly Packaging" class="icon">
-                <h3>Eco Packaging</h3>
-                <p>Biodegradable materials to reduce our environmental footprint.</p>
-            </div>
-            <div class="feature-card">
-                <img src="coffee-icon.png" alt="Fast Delivery" class="icon">
-                <h3>Fast Delivery</h3>
-                <p>Fresh brews delivered to your door in under 24 hours.</p>
-            </div>
+            <h1>Build Your First Landing Page</h1>
+            <p>A perfect beginner project to master HTML & CSS. Dive into sections, columns, and creative design!</p>
+            <a href="#features" class="cta-button">Get Started</a>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>At EcoCoffee, we're passionate about blending great taste with planetary care. Founded in 2025, our mission is to make every cup count toward a greener world.</p>
+        <div class="container">
+            <h2>Why This Project?</h2>
+            <p class="about-desc">A landing page is one of the best web development projects for beginners. This project demands a foundational understanding of HTML and CSS. You will learn how to add columns, divide sections, arrange items, add headers, footers. Most importantly, you will use your creativity to make the page look impressive. The alignments, the padding, the color palette, boxes and all the other elements on the page require attention. Use CSS carefully to make sure the elements on the page do not overlap.</p>
+        </div>
     </section>
 
-    <footer id="contact">
-        <p>&copy; 2025 EcoCoffee. All rights reserved. | Email: EcoCoffee65@gmail.com | Phone: (123) 456-7890</p>
+    <!-- Features Section (with Columns) -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Skills You'll Learn</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon">📐</div>
+                    <h3>Structure & Sections</h3>
+                    <p>Divide your page into hero, about, and footer sections using semantic HTML for better organization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Creative Styling</h3>
+                    <p>Play with colors, padding, and shadows to make boxes and elements pop without overlapping.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Use media queries to arrange columns that adapt to mobile, tablet, and desktop screens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Build?</h2>
+            <p>Start your project today and showcase your skills!</p>
+            <a href="mailto:your.email@example.com" class="cta-button">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 WebDev Starter. Built with HTML & CSS. | Learn more at <a href="#">webdevbasics.com</a></p>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
