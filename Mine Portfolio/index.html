@@ -3,47 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Your Portfolio - Professional & Creative</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <img src="profile.jpg" alt="Mine Portfolio" class="profile-img">
-        <h1>Hi, I'm Aayushi keer</h1>
-        <p class="intro">I'm a passionate web developer with a focus on front-end technologies. Welcome to my portfolio where I showcase my skills and projects.</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">AAYUSHI KEER</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <section class="contact">
-        <h2>Contact Information</h2>
-        <p>Email: aayushi.k2023@gmail.com</p>
-        <p>Phone: (+91) 8824398515</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aayushikeer ">linkedin.com/in/aayushikeer</a></p>
-        <p>GitHub: <a href="https://github.com/aayushik2023-lgtm">github.com/aayushikeer</a></p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm <span class="highlight">AAYUSHI KEER</span></h1>
+            <p class="hero-subtitle">A passionate developer/designer creating amazing digital experiences.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+        <div class="hero-image">
+            <img src="aayushi.jpg.jpg" alt="Your Photo" class="profile-img">
+        </div>
     </section>
 
-    <section class="skills">
-        <h2>Skills & Samples</h2>
-        <ul>
-            <li>HTML5 & CSS3: Building responsive websites like this portfolio.</li>
-            <li>JavaScript: Interactive elements and basic animations.</li>
-            <li>Projects: 
-                <ul>
-                    <li><a href="#project1">Sample Project 1</a> - A to-do list app.</li>
-                    <li><a href="#project2">Sample Project 2</a> - A weather dashboard.</li>
-                </ul>
-            </li>
-        </ul>
-        <!-- Add more skills or embed images/links to your samples here -->
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>I'm a creative professional with 5+ years in web development and design. I love turning ideas into vibrant, user-friendly websites. Skills include HTML/CSS/JS, React, and UI/UX design.</p>
+                <div class="skills">
+                    <div class="skill-item">HTML/CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">UI/UX Design</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="resume">
-        <h2>Resume</h2>
-        <p>Download my resume: <a href="JOB RESUME (AAYUSHI KEER.pdf)" download>job resume .pdf</a></p>
-        <!-- You can embed a PDF viewer or add more details here -->
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Project 1">
+                    <h3>E-Commerce Site</h3>
+                    <p>A responsive online store built with React and Node.js.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <img src="project2.jpg" alt="Project 2">
+                    <h3>Mobile App UI</h3>
+                    <p>Modern UI design for a fitness tracking app.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Project 3">
+                    <h3>Portfolio Dashboard</h3>
+                    <p>An interactive dashboard for data visualization.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>Let's collaborate! Email me at aayushi.k2023@gmail.com or connect on LinkedIn.</p>
+            <div class="contact-links">
+                <a href="mailto:aayushi.k2023@gmail.com" class="contact-link">Email</a>
+                <a href="https://www.linkedin.com/in/aayushikeer?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/aayushik2023-lgtm" class="contact-link">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Aayushi Keer. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
