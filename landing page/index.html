@@ -1,91 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aayushi's Creative Landing Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitTrack Pro - Smart Fitness Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --main:#FF5722; --accent:#4CAF50;
+  --bg-light:#f9f9f9; --bg-dark:#121212;
+  --text-light:#333; --text-dark:#f0f0f0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:var(--bg-light);color:var(--text-light);transition:0.5s;}
+body.dark-mode{background:var(--bg-dark);color:var(--text-dark);}
+a{text-decoration:none;color:inherit;}
+.container{max-width:1200px;margin:auto;padding:0 20px;}
+.nav-bar{display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
+.nav-logo{font-weight:700;font-size:26px;color:var(--main);}
+.nav-links{list-style:none;display:flex;gap:20px;}
+.nav-links li a{font-weight:500;color:var(--text-light);transition:0.3s;}
+.nav-links li a:hover{color:var(--main);}
+.hero-section{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:60px 0;opacity:0;transform:translateY(50px);transition:0.8s;}
+.hero-text{flex:1 1 500px;padding-right:20px;}
+.hero-text h1{font-size:38px;margin-bottom:20px;color:var(--main);}
+.hero-text p{font-size:18px;margin-bottom:25px;}
+.btn-cta{display:inline-block;padding:12px 28px;background-color:var(--accent);color:white;font-weight:600;border-radius:8px;transition:0.3s;}
+.btn-cta:hover{background-color:#388E3C;transform:scale(1.05);}
+.hero-img{flex:1 1 400px;text-align:center;}
+.hero-img img{max-width:100%;border-radius:12px;}
+.about-section{padding:60px 0;opacity:0;transform:translateY(50px);transition:0.8s;}
+.about-section h2{text-align:center;color:var(--main);font-size:30px;margin-bottom:25px;}
+.about-section p{max-width:800px;margin:auto;text-align:center;font-size:17px;line-height:1.8;}
+.features-section{padding:60px 0;background-color:#e0f7fa;border-radius:12px;margin-bottom:40px;opacity:0;transform:translateY(50px);transition:0.8s;}
+.features-section h2{text-align:center;font-size:30px;margin-bottom:40px;color:var(--main);}
+.features-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.feature-card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 6px 12px rgba(0,0,0,0.1);flex:1 1 220px;text-align:center;transition:transform 0.3s,box-shadow 0.3s;}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 8px 16px rgba(0,0,0,0.2);}
+.feature-card h3{margin:15px 0;color:var(--accent);}
+.testimonials-section{padding:60px 0;text-align:center;opacity:0;transform:translateY(50px);transition:0.8s;}
+.testimonials-section h2{color:var(--main);margin-bottom:40px;}
+.testimonial-container{position:relative;max-width:600px;margin:auto;overflow:hidden;}
+.testimonial-slider{display:flex;transition:0.5s;}
+.testimonial-card{background:#fff;padding:25px;border-radius:12px;min-width:100%;box-shadow:0 6px 12px rgba(0,0,0,0.1);}
+.testimonial-card p{font-size:15px;margin-bottom:10px;}
+.pricing-section{padding:60px 0;background-color:#f1f8e9;text-align:center;opacity:0;transform:translateY(50px);transition:0.8s;}
+.pricing-section h2{color:var(--main);margin-bottom:40px;}
+.pricing-card{background:#fff;padding:25px;border-radius:12px;display:inline-block;width:250px;margin:10px;box-shadow:0 6px 12px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
+.pricing-card:hover{transform:scale(1.05);box-shadow:0 8px 16px rgba(0,0,0,0.2);}
+.pricing-card h3{margin-bottom:15px;color:var(--accent);}
+.faq-section{padding:60px 0;text-align:center;opacity:0;transform:translateY(50px);transition:0.8s;}
+.faq-section h2{color:var(--main);margin-bottom:40px;}
+.faq-item{max-width:800px;margin:10px auto;text-align:left;background:#fff;padding:20px;border-radius:12px;box-shadow:0 6px 12px rgba(0,0,0,0.1);}
+.faq-item h4{margin-bottom:10px;color:var(--accent);}
+.contact-section{text-align:center;padding:40px 0;opacity:0;transform:translateY(50px);transition:0.8s;}
+.contact-section h2{color:var(--main);margin-bottom:20px;}
+.contact-section a{color:var(--accent);font-weight:600;transition:0.3s;}
+.contact-section a:hover{color:#388E3C;}
+footer{text-align:center;padding:20px 0;font-size:14px;}
+.mode-toggle{display:block;margin:20px auto;padding:10px 16px;border:1px solid var(--main);border-radius:8px;background:none;color:var(--main);cursor:pointer;transition:0.3s;}
+.mode-toggle:hover{background-color:var(--main);color:white;}
+@media(max-width:768px){.hero-section{flex-direction:column;}.hero-text{padding-right:0;text-align:center;margin-bottom:20px;}}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">Aayushi Design</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">☰</div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to My Creative Space</h1>
-            <p>I'm Aayushi, a web developer passionate about turning ideas into interactive designs. This page is built using pure HTML, CSS, and a pinch of JavaScript magic.</p>
-            <a href="#features" class="cta-button">Explore More</a>
-        </div>
-    </section>
+<nav class="nav-bar container">
+  <div class="nav-logo">FitTrack Pro</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About This Project</h2>
-            <p class="about-desc">This landing page is part of my internship learning journey. I created it to demonstrate how structure, design, and interactivity come together in a web page. Every section—from navigation to footer—is hand-coded with attention to detail and responsiveness.</p>
-        </div>
-    </section>
+<section class="hero-section container" id="home">
+  <div class="hero-text">
+    <h1>Introducing <span>FitTrack Pro BY AAYUSHI </span></h1>
+    <p>The smart fitness tracker that monitors your health, tracks workouts, and helps you achieve your fitness goals.</p>
+    <a href="#contact" class="btn-cta">Order Now</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI8t1_ZnUCGKJACa7LzP_l0qw4pfBVe1CTjQ&s" alt="FitTrack Pro">
+  </div>
+</section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>What Makes This Page Special</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="card-icon">✨</div>
-                    <h3>Clean Design</h3>
-                    <p>A minimal yet attractive layout with smooth spacing and balanced colors for better readability.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Responsive Layout</h3>
-                    <p>Fully adaptable to mobile, tablet, and desktop screens using flexible CSS and media queries.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Interactive Touch</h3>
-                    <p>Simple animations and navigation toggle enhance the user experience without heavy libraries.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="about-section container" id="about">
+  <h2>About FitTrack Pro</h2>
+  <p>FitTrack Pro is your ultimate health companion with real-time monitoring of heart rate, sleep, steps, and calories. Set personal goals and track progress effortlessly.</p>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Have a project in mind or just want to connect? I’d love to hear from you!</p>
-            <a href="mailto:aayushi.k2023@gmail.com" class="cta-button">Contact Me</a>
-        </div>
-    </section>
+<section class="features-section container" id="features">
+  <h2>Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-card"><div class="icon">❤️</div><h3>Heart Rate Monitoring</h3><p>Accurate heart rate data for safe workouts.</p></div>
+    <div class="feature-card"><div class="icon">💤</div><h3>Sleep Tracking</h3><p>Understand and improve your sleep patterns.</p></div>
+    <div class="feature-card"><div class="icon">🏃</div><h3>Step & Activity Tracking</h3><p>Track your steps, distance, and calories daily.</p></div>
+    <div class="feature-card"><div class="icon">📱</div><h3>App Integration</h3><p>Sync seamlessly with mobile app for insights.</p></div>
+    <div class="feature-card"><div class="icon">🎯</div><h3>Goal Setting</h3><p>Set targets and stay motivated every day.</p></div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>Designed & Developed with ❤️ by Aayushi Keer | © 2025</p>
-        </div>
-    </footer>
+<section class="testimonials-section container" id="testimonials">
+  <h2>What Our Users Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-slider">
+      <div class="testimonial-card"><p>"FitTrack Pro is amazing! I can track all my workouts easily."</p><strong>- Alex M.</strong></div>
+      <div class="testimonial-card"><p>"I sleep better and monitor my health every day. Highly recommend!"</p><strong>- Sara K.</strong></div>
+      <div class="testimonial-card"><p>"Best fitness tracker I've ever used. Stylish and smart!"</p><strong>- John D.</strong></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Responsive mobile menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+<section class="pricing-section container" id="pricing">
+  <h2>Pricing Plans</h2>
+  <div class="pricing-card"><h3>Basic</h3><p>Heart Rate + Step Tracking</p><p>$49.99</p><a href="#contact" class="btn-cta">Buy Now</a></div>
+  <div class="pricing-card"><h3>Pro</h3><p>All features + Sleep Tracking</p><p>$79.99</p><a href="#contact" class="btn-cta">Buy Now</a></div>
+  <div class="pricing-card"><h3>Premium</h3><p>All features + Advanced Analytics</p><p>$99.99</p><a href="#contact" class="btn-cta">Buy Now</a></div>
+</section>
+
+<section class="faq-section container" id="faq">
+  <h2>FAQ</h2>
+  <div class="faq-item"><h4>Does it work with iOS and Android?</h4><p>Yes, FitTrack Pro syncs with both iOS and Android apps.</p></div>
+  <div class="faq-item"><h4>How long does the battery last?</h4><p>Up to 7 days on a single charge depending on usage.</p></div>
+</section>
+
+<section class="contact-section container" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email us at <a href="mailto:support@fittrackpro.com">support@fittrackpro.com</a></p>
+</section>
+
+<footer>
+  &copy; 2025 FitTrack Pro. All rights reserved.
+</footer>
+
+<script>
+// Scroll fade-in
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){ sec.style.opacity='1'; sec.style.transform='translateY(0)'; }
+  });
+});
+
+// Testimonials slider
+const slider = document.querySelector('.testimonial-slider');
+let index = 0;
+function nextSlide(){
+  index++;
+  if(index >= slider.children.length) index=0;
+  slider.style.transform = `translateX(-${index*100}%)`;
+}
+setInterval(nextSlide,4000);
+</script>
+
 </body>
 </html>
