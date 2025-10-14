@@ -1,166 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature Converter</title>
-    <style>
-        /* Basic styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter - Oasis Infobytes Project</title>
+  <style>
+    :root {
+      --bg-light: #f0f8ff;
+      --bg-dark: #1c1c1c;
+      --text-light: #333;
+      --text-dark: #f9f9f9;
+      --primary: #007bff;
+      --accent: #4caf50;
+    }
 
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      transition: background 0.5s ease;
+    }
 
-        h1 {
-            color: #007BFF;
-            margin-bottom: 20px;
-        }
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+      transition: all 0.3s ease;
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+    h1 {
+      color: var(--primary);
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
 
-        label {
-            text-align: left;
-            font-weight: bold;
-            color: #333;
-        }
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-light);
+    }
 
-        input[type="number"], select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
 
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    input:focus, select:focus {
+      border-color: var(--primary);
+    }
 
-        button:hover {
-            background-color: #0056b3;
-        }
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
 
-        #output {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e8f5e8;
-            border-radius: 5px;
-            border: 1px solid #4CAF50;
-            min-height: 60px;
-            display: none; /* Hidden until results show */
-        }
+    button:hover {
+      background-color: #0056b3;
+    }
 
-        #output.show {
-            display: block;
-        }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--accent);
+      background: #e8f5e8;
+      padding: 15px;
+      border-radius: 6px;
+      display: none;
+      animation: fadeIn 0.6s ease;
+    }
 
-        .error {
-            color: #dc3545;
-            font-size: 14px;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        /* Responsive for mobile */
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-            }
-        }
-    </style>
+    .mode-toggle {
+      margin-top: 20px;
+      background: none;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .mode-toggle:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background: linear-gradient(135deg, #121212, #303030);
+    }
+
+    body.dark .container {
+      background-color: #222;
+      color: var(--text-dark);
+    }
+
+    body.dark label {
+      color: var(--text-dark);
+    }
+
+    body.dark input, body.dark select {
+      background-color: #333;
+      color: var(--text-dark);
+      border-color: #555;
+    }
+
+    body.dark #output {
+      background: #2d3d2d;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 25px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Temperature Converter</h1>
-        <form id="converterForm">
-            <label for="tempInput">Enter Temperature:</label>
-            <input type="number" id="tempInput" placeholder="e.g., 25" step="any" required>
+  <div class="container">
+    <h1>🌡 Temperature Converter</h1>
 
-            <label for="unitSelect">From Unit:</label>
-            <select id="unitSelect">
-                <option value="C">Celsius (°C)</option>
-                <option value="F">Fahrenheit (°F)</option>
-                <option value="K">Kelvin (K)</option>
-            </select>
+    <label for="tempInput">Enter Temperature:</label>
+    <input type="number" id="tempInput" placeholder="e.g., 25" step="any">
 
-            <button type="button" onclick="convertTemperature()">Convert</button>
-        </form>
+    <label for="fromUnit">From Unit:</label>
+    <select id="fromUnit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
 
-        <div id="output"></div>
-    </div>
+    <label for="toUnit">To Unit:</label>
+    <select id="toUnit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
 
-    <script>
-        function convertTemperature() {
-            const tempInput = document.getElementById('tempInput').value;
-            const unitSelect = document.getElementById('unitSelect').value;
-            const output = document.getElementById('output');
+    <button onclick="convertTemp()">Convert</button>
 
-            // Validate input is a number
-            if (isNaN(tempInput) || tempInput === '') {
-                alert('Please enter a valid number for the temperature!');
-                return;
-            }
+    <div id="output"></div>
 
-            const temp = parseFloat(tempInput);
-            let results = '';
+    <button class="mode-toggle" onclick="toggleMode()">🌗 Toggle Light/Dark</button>
+  </div>
 
-            // Conversion logic based on input unit
-            if (unitSelect === 'C') {
-                const fahrenheit = (temp * 9/5) + 32;
-                const kelvin = temp + 273.15;
-                results = `${temp}°C is equal to:<br>
-                          ${fahrenheit.toFixed(2)}°F<br>
-                          ${kelvin.toFixed(2)}K`;
-            } else if (unitSelect === 'F') {
-                const celsius = (temp - 32) * 5/9;
-                const kelvin = celsius + 273.15;
-                results = `${temp}°F is equal to:<br>
-                          ${celsius.toFixed(2)}°C<br>
-                          ${kelvin.toFixed(2)}K`;
-            } else if (unitSelect === 'K') {
-                const celsius = temp - 273.15;
-                const fahrenheit = (celsius * 9/5) + 32;
-                results = `${temp}K is equal to:<br>
-                          ${celsius.toFixed(2)}°C<br>
-                          ${fahrenheit.toFixed(2)}°F`;
-            }
+  <script>
+    function convertTemp() {
+      const input = parseFloat(document.getElementById("tempInput").value);
+      const from = document.getElementById("fromUnit").value;
+      const to = document.getElementById("toUnit").value;
+      const output = document.getElementById("output");
 
-            // Display results
-            output.innerHTML = results;
-            output.classList.add('show');
-        }
+      if (isNaN(input)) {
+        output.style.display = "block";
+        output.innerHTML = "⚠️ Please enter a valid number!";
+        output.style.color = "#dc3545";
+        return;
+      }
 
-        // Optional: Allow Enter key to trigger conversion
-        document.getElementById('tempInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                convertTemperature();
-            }
-        });
-    </script>
+      if (from === to) {
+        output.style.display = "block";
+        output.style.color = "#4caf50";
+        output.innerHTML = `${input}°${from} = ${input}°${to}`;
+        return;
+      }
+
+      let celsius;
+
+      // Convert to Celsius first
+      if (from === "C") celsius = input;
+      else if (from === "F") celsius = (input - 32) * 5/9;
+      else if (from === "K") celsius = input - 273.15;
+
+      let result;
+
+      // Convert Celsius to desired unit
+      if (to === "C") result = celsius;
+      else if (to === "F") result = (celsius * 9/5) + 32;
+      else if (to === "K") result = celsius + 273.15;
+
+      output.style.display = "block";
+      output.style.color = "#4caf50";
+      output.innerHTML = `✅ ${input}°${from} = ${result.toFixed(2)}°${to}`;
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
 </body>
 </html>
